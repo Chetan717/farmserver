@@ -22,7 +22,7 @@ const CreateOrder = async (_, { orderInput }) => {
         from: process.env.EMAIL_NODEMAILER,
         to: email,
         subject: "Order Sucessfully",
-        text: `Congratulations on your successful order at SoilBooster.in! OrderId : ${orderid} We're thrilled to have you as our valued customer. Your support means the world to us, and we hope you enjoy the products and services you've chosen. If you have any questions or need assistance, please don't hesitate to reach out to our friendly customer support team. Thank you for choosing SoilBooster.in for your gardening needs!`,
+        text: `Congratulations on your successful order at Electronic.in! OrderId : ${orderid} We're thrilled to have you as our valued customer. Your support means the world to us, and we hope you enjoy the products and services you've chosen. If you have any questions or need assistance, please don't hesitate to reach out to our friendly customer support team. Thank you for choosing Electronics for your gardening needs!`,
       };
 
       await transporter.sendMail(mailOptions);
@@ -84,7 +84,6 @@ const UpdateOrder = async (_, { _id, input }) => {
 
 const GetAllOrders = async (_, { first, last, createdAt }) => {
   try {
-
     const skip = last > 0 ? Math.max(0, first - last) : 0;
     const limit = last > 0 ? last : first;
     const DataOfCreated = await OrderModel.find({ createdAt: createdAt });
@@ -98,7 +97,6 @@ const GetAllOrders = async (_, { first, last, createdAt }) => {
     };
     return Data;
   } catch (error) {
-
     return [{ process: error?.message }];
   }
 };
@@ -107,7 +105,7 @@ const GetOrderByMonthYear = async (_, { year, month }) => {
   try {
     const DataOfMonthAndYear = await OrderModel.find({
       month: String(month),
-      year: String(year)
+      year: String(year),
     });
 
     const Data = {
@@ -120,7 +118,7 @@ const GetOrderByMonthYear = async (_, { year, month }) => {
     console.error(error);
     throw error; // Re-throw the error to handle it further up the call stack
   }
-}
+};
 
 module.exports = {
   CreateOrder,
@@ -128,5 +126,5 @@ module.exports = {
   DeleteOrder,
   UpdateOrder,
   GetAllOrders,
-  GetOrderByMonthYear
+  GetOrderByMonthYear,
 };
