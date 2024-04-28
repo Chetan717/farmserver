@@ -22,7 +22,7 @@ const CreateOrder = async (_, { orderInput }) => {
         from: process.env.EMAIL_NODEMAILER,
         to: email,
         subject: "Order Sucessfully",
-        text: `Congratulations on your successful order at Electronic.in! OrderId : ${orderid} We're thrilled to have you as our valued customer. Your support means the world to us, and we hope you enjoy the products and services you've chosen. If you have any questions or need assistance, please don't hesitate to reach out to our friendly customer support team. Thank you for choosing Electronics for your gardening needs!`,
+        text: `Congratulations on your successful order at FARM FRESH MARKET OrderId : ${orderid} We're thrilled to have you as our valued customer. Your support means the world to us, and we hope you enjoy the products and services you've chosen. If you have any questions or need assistance, please don't hesitate to reach out to our friendly customer support team. Thank you for choosing FARM FRESH MARKET for your gardening needs!`,
       };
 
       await transporter.sendMail(mailOptions);
